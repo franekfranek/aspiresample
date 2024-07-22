@@ -1,7 +1,7 @@
 name: Deploy Steps
 
 on:
-  workflow_call:
+  workflow_dispatch:
 
 env:
   AZURE_SUBSCRIPTION_ID: 5a6208ea-211a-40d5-b26e-b89603eada13
