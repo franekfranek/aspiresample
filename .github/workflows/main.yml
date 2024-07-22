@@ -62,10 +62,16 @@ jobs:
     #       --template-file bicep/main.bicep \
     #       --parameters location=${{ matrix.region }} tenantId=${{ secrets.TENANTID }}
 
+    - name: Echo Azure Location
+      env:
+        AZURE_LOCATION: ${{ matrix.region }}    
+      run: echo "AZURE_LOCATION is $AZURE_LOCATION"
+
     - name: Provision Aspire Infrastructure
       env:
         AZURE_LOCATION: ${{ matrix.region }}
-      run: azd provision --no-prompt --cwd AspireSample.AppHost
+      run: azd --debug provision --no-prompt --cwd AspireSample.AppHost
+      working-directory: AspireSample.AppHost
 
     - name: Deploy Aspire Application
       env:
