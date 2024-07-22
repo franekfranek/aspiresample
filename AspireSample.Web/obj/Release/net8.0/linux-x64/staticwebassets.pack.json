@@ -1,23 +1,23 @@
 {
   "Files": [
     {
-      "Id": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\projectbundle\\AspireSample.Web.bundle.scp.css",
+      "Id": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\projectbundle\\AspireSample.Web.bundle.scp.css",
       "PackagePath": "staticwebassets\\AspireSample.Web.bundle.scp.css"
     },
     {
-      "Id": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\app.css",
+      "Id": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\favicon.png",
+      "Id": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {

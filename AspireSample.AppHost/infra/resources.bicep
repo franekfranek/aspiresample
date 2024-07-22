@@ -1,5 +1,5 @@
 @description('The location used for all deployed resources')
-param location string = resourceGroup().location
+param location string
 @description('Id of the user or app to assign application roles')
 param principalId string = ''
 

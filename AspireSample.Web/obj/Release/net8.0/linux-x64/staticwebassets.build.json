@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "K7Tl4i7FRwgku/teanmqytZ86YcIMJ36nyJnEqf5HYE=",
+  "Hash": "2OMLtY0fy5XCYXy4UbOoLZWeURMa8sGPIuJ2f6Z2XuY=",
   "Source": "AspireSample.Web",
   "BasePath": "_content/AspireSample.Web",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "AspireSample.Web\\wwwroot",
       "Source": "AspireSample.Web",
-      "ContentRoot": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\",
+      "ContentRoot": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\",
       "BasePath": "_content/AspireSample.Web",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\bundle\\AspireSample.Web.styles.css",
+      "Identity": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\bundle\\AspireSample.Web.styles.css",
       "SourceId": "AspireSample.Web",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\bundle\\",
       "BasePath": "_content/AspireSample.Web",
       "RelativePath": "AspireSample.Web.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\bundle\\AspireSample.Web.styles.css"
+      "OriginalItemSpec": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\bundle\\AspireSample.Web.styles.css"
     },
     {
-      "Identity": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\projectbundle\\AspireSample.Web.bundle.scp.css",
+      "Identity": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\projectbundle\\AspireSample.Web.bundle.scp.css",
       "SourceId": "AspireSample.Web",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\projectbundle\\",
       "BasePath": "_content/AspireSample.Web",
       "RelativePath": "AspireSample.Web.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\projectbundle\\AspireSample.Web.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\projectbundle\\AspireSample.Web.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\app.css",
+      "Identity": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\app.css",
       "SourceId": "AspireSample.Web",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\",
+      "ContentRoot": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\",
       "BasePath": "_content/AspireSample.Web",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "AspireSample.Web",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\",
+      "ContentRoot": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\",
       "BasePath": "_content/AspireSample.Web",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "AspireSample.Web",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\",
+      "ContentRoot": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\",
       "BasePath": "_content/AspireSample.Web",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\favicon.png",
+      "Identity": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\favicon.png",
       "SourceId": "AspireSample.Web",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Data\\NEW\\DevOps\\Aspire\\AspireSample\\AspireSample.Web\\wwwroot\\",
+      "ContentRoot": "C:\\Data\\NEW\\DevOps\\aspiresample\\AspireSample.Web\\wwwroot\\",
       "BasePath": "_content/AspireSample.Web",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AspireSample.ServiceDefaults
-build_property.ProjectDir = C:\Data\NEW\DevOps\Aspire\AspireSample\AspireSample.ServiceDefaults\
+build_property.ProjectDir = C:\Data\NEW\DevOps\aspiresample\AspireSample.ServiceDefaults\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
