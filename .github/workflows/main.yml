@@ -55,12 +55,12 @@ jobs:
     - name: Enable resource scoped deployments
       run: azd config set alpha.resourceGroupDeployments on
 
-    - name: Deploy other resources not handled by aspire
-      run: |
-        az deployment group create \
-          --resource-group ${{ env.AZURE_RESOURCEGROUP_ID }} \
-          --template-file bicep/main.bicep \
-          --parameters location=${{ matrix.region }} tenantId=${{ secrets.TENANTID }}
+    # - name: Deploy other resources not handled by aspire
+    #   run: |
+    #     az deployment group create \
+    #       --resource-group ${{ env.AZURE_RESOURCEGROUP_ID }} \
+    #       --template-file bicep/main.bicep \
+    #       --parameters location=${{ matrix.region }} tenantId=${{ secrets.TENANTID }}
 
     - name: Provision Aspire Infrastructure
       env:
