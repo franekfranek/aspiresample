@@ -4,17 +4,13 @@ on:
   workflow_call:
 
 env:
-  AZURE_SUBSCRIPTION_ID: 0d0df1c1-84dd-490b-bed1-07244f2dd931
+  AZURE_SUBSCRIPTION_ID: 5a6208ea-211a-40d5-b26e-b89603eada13
   AZURE_RESOURCEGROUP_ID: rg-emt-crm-dev-01
   AZURE_RESOURCE_GROUP: rg-emt-crm-dev-01
   AZURE_TENANT_ID: 548d26ab-8caa-49e1-97c2-a1b1a06cc39c
-
   AZURE_ENV_NAME: "emt-crm-dev-01"
-  AZURE_LOCATION: "East US"
   CONTAINER_ENV_NAME: cae-crm-dev-01
-
   ACRNAME: cremtcrmdev01
-
   AZURE_CHAT_API_KEY: azurekeyhere
   AZURE_CHAT_DEPLOYMENT_NAME: deploynamehere
   AZURE_CHAT_ENDPOINT: endpointhere
@@ -22,7 +18,6 @@ env:
 jobs:
   deploy-global:
     runs-on: ubuntu-latest
-
     steps:
     - name: Display information
       run: |
@@ -33,16 +28,16 @@ jobs:
         echo "Workflow: ${{ github.workflow }}"
         echo "Run ID: ${{ github.run_id }}"
         echo "Run number: ${{ github.run_number }}"
-        
+
   deploy-region:
     runs-on: ubuntu-latest
-
-    # Setup the parameters
+    strategy:
+      matrix:
+        region: [eastus, brazilsouth, northeurope, eastasia]
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # # I don't know if this is required
     - name: Install azd
       uses: Azure/setup-azd@v0.1.0
 
@@ -60,43 +55,19 @@ jobs:
     - name: Enable resource scoped deployments
       run: azd config set alpha.resourceGroupDeployments on
 
-    # # # Build + Push FE Docker container
-    # - name: Login to ACR
-    #   run: az acr login -n acrqkotcvwgohlfk
-    
-    # - name: store_commit_hash
-    #   id: store_commit_hash
-    #   run: echo "short_hash=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-
-    # - name: Use short commit hash
-    #   run: echo "The short commit hash is ${{ env.short_hash }}"
-
-    # - name: build fe docker image
-    #   run: docker build . --tag acrqkotcvwgohlfk.azurecr.io/sundblom-frontend:${{ env.short_hash }}
-    #   working-directory: Sundblom.Frontend
-
-    # - name: push fe docker image
-    #   run: docker push acrqkotcvwgohlfk.azurecr.io/sundblom-frontend:${{ env.short_hash }}
-
-    # - name: build avatar demo image
-    #   run: docker build . --tag acrqkotcvwgohlfk.azurecr.io/ms-avatar-demo:${{ env.short_hash }}
-    #   working-directory: experiments/modality-generator/avatar/python/web/avatar
-
-    # - name: push fe docker image
-    #   run: docker push acrqkotcvwgohlfk.azurecr.io/ms-avatar-demo:${{ env.short_hash }}
-
-    # - name: set docker image to use in fe container template
-    #   run: sed -i 's|IMAGETAG|${{ env.short_hash }}|g' Sundblom.AppHost/infra/frontend.tmpl.yaml
-
-    # - name: set docker image to use in chat template
-    #   run: sed -i 's|IMAGETAG|${{ env.short_hash }}|g' Sundblom.AppHost/infra/chat.tmpl.yaml
-
-    # Provision Aspire Infrastructure
     - name: Deploy other resources not handled by aspire
-      run: az deployment group create --resource-group ${{ env.AZURE_RESOURCEGROUP_ID }} --template-file bicep/main.bicep --parameters tenantId=${{ secrets.TENANTID }}
+      run: |
+        az deployment group create \
+          --resource-group ${{ env.AZURE_RESOURCEGROUP_ID }} \
+          --template-file bicep/main.bicep \
+          --parameters location=${{ matrix.region }} tenantId=${{ secrets.TENANTID }}
 
     - name: Provision Aspire Infrastructure
-      run: azd provision --no-prompt --cwd Sundblom.AppHost
+      env:
+        AZURE_LOCATION: ${{ matrix.region }}
+      run: azd provision --no-prompt --cwd AspireSample.AppHost
 
     - name: Deploy Aspire Application
-      run: azd deploy --no-prompt
+      env:
+        AZURE_LOCATION: ${{ matrix.region }}
+      run: azd deploy --no-prompt     
