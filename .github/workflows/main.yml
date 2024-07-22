@@ -5,8 +5,8 @@ on:
 
 env:
   AZURE_SUBSCRIPTION_ID: 5a6208ea-211a-40d5-b26e-b89603eada13
-  AZURE_RESOURCEGROUP_ID: rg-emt-crm-dev-01
-  AZURE_RESOURCE_GROUP: rg-emt-crm-dev-01
+  AZURE_RESOURCEGROUP_ID: rg-crm-dev-eastus
+  AZURE_RESOURCE_GROUP: rg-crm-dev-eastus
   AZURE_TENANT_ID: 548d26ab-8caa-49e1-97c2-a1b1a06cc39c
   AZURE_ENV_NAME: "emt-crm-dev-01"
   CONTAINER_ENV_NAME: cae-crm-dev-01
