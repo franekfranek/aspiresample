@@ -14,9 +14,9 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var cache = builder.AddRedis("crm-cache");
 
-var secrets = builder.ExecutionContext.IsPublishMode
-    ? builder.AddAzureKeyVault("secrets")
-    : builder.AddConnectionString("secrets");
+// var secrets = builder.ExecutionContext.IsPublishMode
+//     ? builder.AddAzureKeyVault("secrets")
+//     : builder.AddConnectionString("secrets");
 
 // Add the locations database.
 var locationsdb = builder.AddPostgres("db").AddDatabase("locations");
@@ -30,9 +30,9 @@ builder.AddProject<Projects.AspireSample_Web>("webfrontend")
     .WithReference(apiservice)
     .WithReference(secrets);
 
-builder.AddBicepTemplate(
-    name: "storage",
-    bicepFile: "infra/storage.bicep");
+// builder.AddBicepTemplate(
+//     name: "storage",
+//     bicepFile: "infra/storage.bicep");
 
 
 builder.Build().Run();

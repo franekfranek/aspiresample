@@ -1,4 +1,5 @@
-targetScope = 'subscription'
+// targetScope = 'subscription'
+targetScope = 'resourceGroup'
 
 @minLength(1)
 @maxLength(64)
@@ -24,14 +25,13 @@ var tags = {
   'azd-env-name': environmentName
 }
 
-resource rg 'Microsoft.Resources/resourceGroups@2022-09-01' = {
-  name: 'rg-${environmentName}'
-  location: location
-  tags: tags
-}
+// resource rg 'Microsoft.Resources/resourceGroups@2022-09-01' = {
+//   name: 'rg-${environmentName}'
+//   location: location
+//   tags: tags
+// }
 
 module resources 'resources.bicep' = {
-  scope: rg
   name: 'resources'
   params: {
     location: location
@@ -49,13 +49,13 @@ module resources 'resources.bicep' = {
 //     principalType: 'ServicePrincipal'
 //   }
 // }
-module storage 'storage/storage.bicep' = {
-  name: 'storage'
-  scope: rg
-  params: {
-    location: location
-  }
-}
+// module storage 'storage/storage.bicep' = {
+//   name: 'storage'
+//   scope: rg
+//   params: {
+//     location: location
+//   }
+// }
 output MANAGED_IDENTITY_CLIENT_ID string = resources.outputs.MANAGED_IDENTITY_CLIENT_ID
 output MANAGED_IDENTITY_NAME string = resources.outputs.MANAGED_IDENTITY_NAME
 output AZURE_LOG_ANALYTICS_WORKSPACE_NAME string = resources.outputs.AZURE_LOG_ANALYTICS_WORKSPACE_NAME
