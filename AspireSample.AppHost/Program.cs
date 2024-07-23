@@ -27,8 +27,8 @@ var apiservice = builder.AddProject<Projects.AspireSample_ApiService>("apiservic
 
 builder.AddProject<Projects.AspireSample_Web>("webfrontend")
     .WithReference(cache)
-    .WithReference(apiservice)
-    .WithReference(secrets);
+    .WithReference(apiservice);
+    // .WithReference(secrets);
 
 // builder.AddBicepTemplate(
 //     name: "storage",
