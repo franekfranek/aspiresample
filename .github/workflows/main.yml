@@ -73,11 +73,17 @@ jobs:
     - name: List directory contents
       run: ls -la
 
+    # - name: Provision Aspire Infrastructure
+    #   env:
+    #     AZURE_LOCATION: ${{ matrix.region }}
+    #   run: azd --debug provision --no-prompt --cwd AspireSample.AppHost
+    #   working-directory: AspireSample.AppHost
     - name: Provision Aspire Infrastructure
       env:
         AZURE_LOCATION: ${{ matrix.region }}
-      run: azd --debug provision --no-prompt --cwd AspireSample.AppHost
-      working-directory: AspireSample.AppHost
+      run: |
+        cd AspireSample.AppHost
+        azd --debug provision --no-prompt
 
     - name: Deploy Aspire Application
       env:
