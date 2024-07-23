@@ -8,7 +8,7 @@ env:
   AZURE_RESOURCEGROUP_ID: rg-crm-dev-eastus
   AZURE_RESOURCE_GROUP: rg-crm-dev-eastus
   AZURE_TENANT_ID: 548d26ab-8caa-49e1-97c2-a1b1a06cc39c
-  AZURE_ENV_NAME: "emt-crm-dev-01"
+  AZURE_ENV_NAME: "dev"
   CONTAINER_ENV_NAME: cae-crm-dev-01
   ACRNAME: cremtcrmdev01
   AZURE_CHAT_API_KEY: azurekeyhere

@@ -6,7 +6,7 @@
 *.ko
 *.obj
 *.elf
-
+**/**/.env
 # Linker output
 *.ilk
 *.map
