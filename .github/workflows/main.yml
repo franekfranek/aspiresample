@@ -69,7 +69,10 @@ jobs:
    
     - name: Display current path
       run: pwd
-      
+
+    - name: List directory contents
+      run: ls -la
+
     - name: Provision Aspire Infrastructure
       env:
         AZURE_LOCATION: ${{ matrix.region }}
