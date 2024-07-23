@@ -40,15 +40,15 @@ module resources 'resources.bicep' = {
   }
 }
 
-module secrets 'secrets/secrets.module.bicep' = {
-  name: 'secrets'
-  scope: rg
-  params: {
-    location: location
-    principalId: resources.outputs.MANAGED_IDENTITY_PRINCIPAL_ID
-    principalType: 'ServicePrincipal'
-  }
-}
+// module secrets 'secrets/secrets.module.bicep' = {
+//   name: 'secrets'
+//   scope: rg
+//   params: {
+//     location: location
+//     principalId: resources.outputs.MANAGED_IDENTITY_PRINCIPAL_ID
+//     principalType: 'ServicePrincipal'
+//   }
+// }
 module storage 'storage/storage.bicep' = {
   name: 'storage'
   scope: rg
@@ -65,4 +65,4 @@ output AZURE_CONTAINER_APPS_ENVIRONMENT_NAME string = resources.outputs.AZURE_CO
 output AZURE_CONTAINER_APPS_ENVIRONMENT_ID string = resources.outputs.AZURE_CONTAINER_APPS_ENVIRONMENT_ID
 output AZURE_CONTAINER_APPS_ENVIRONMENT_DEFAULT_DOMAIN string = resources.outputs.AZURE_CONTAINER_APPS_ENVIRONMENT_DEFAULT_DOMAIN
 
-output SECRETS_VAULTURI string = secrets.outputs.vaultUri
+// output SECRETS_VAULTURI string = secrets.outputs.vaultUri
