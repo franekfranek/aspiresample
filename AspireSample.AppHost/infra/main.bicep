@@ -1,5 +1,4 @@
-// targetScope = 'subscription'
-targetScope = 'resourceGroup'
+targetScope = 'subscription'
 
 @minLength(1)
 @maxLength(64)
@@ -25,13 +24,14 @@ var tags = {
   'azd-env-name': environmentName
 }
 
-// resource rg 'Microsoft.Resources/resourceGroups@2022-09-01' = {
-//   name: 'rg-${environmentName}'
-//   location: location
-//   tags: tags
-// }
+resource rg 'Microsoft.Resources/resourceGroups@2022-09-01' = {
+  name: 'rg-${environmentName}'
+  location: location
+  tags: tags
+}
 
 module resources 'resources.bicep' = {
+  scope: rg
   name: 'resources'
   params: {
     location: location
@@ -40,22 +40,6 @@ module resources 'resources.bicep' = {
   }
 }
 
-// module secrets 'secrets/secrets.module.bicep' = {
-//   name: 'secrets'
-//   scope: rg
-//   params: {
-//     location: location
-//     principalId: resources.outputs.MANAGED_IDENTITY_PRINCIPAL_ID
-//     principalType: 'ServicePrincipal'
-//   }
-// }
-// module storage 'storage/storage.bicep' = {
-//   name: 'storage'
-//   scope: rg
-//   params: {
-//     location: location
-//   }
-// }
 output MANAGED_IDENTITY_CLIENT_ID string = resources.outputs.MANAGED_IDENTITY_CLIENT_ID
 output MANAGED_IDENTITY_NAME string = resources.outputs.MANAGED_IDENTITY_NAME
 output AZURE_LOG_ANALYTICS_WORKSPACE_NAME string = resources.outputs.AZURE_LOG_ANALYTICS_WORKSPACE_NAME
@@ -64,5 +48,3 @@ output AZURE_CONTAINER_REGISTRY_MANAGED_IDENTITY_ID string = resources.outputs.A
 output AZURE_CONTAINER_APPS_ENVIRONMENT_NAME string = resources.outputs.AZURE_CONTAINER_APPS_ENVIRONMENT_NAME
 output AZURE_CONTAINER_APPS_ENVIRONMENT_ID string = resources.outputs.AZURE_CONTAINER_APPS_ENVIRONMENT_ID
 output AZURE_CONTAINER_APPS_ENVIRONMENT_DEFAULT_DOMAIN string = resources.outputs.AZURE_CONTAINER_APPS_ENVIRONMENT_DEFAULT_DOMAIN
-
-// output SECRETS_VAULTURI string = secrets.outputs.vaultUri

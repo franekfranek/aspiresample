@@ -10,6 +10,9 @@
 //     .WithReference(apiService);
 
 // builder.Build().Run();
+
+var envName = Environment.GetEnvironmentVariable("AZURE_ENV_NAME");
+var location = Environment.GetEnvironmentVariable("AZURE_LOCATION");
 var builder = DistributedApplication.CreateBuilder(args);
 
 var cache = builder.AddRedis("crm-cache");
@@ -22,7 +25,7 @@ var cache = builder.AddRedis("crm-cache");
 var locationsdb = builder.AddPostgres("db").AddDatabase("locations");
 
 // Add the locations database reference to the API service.
-var apiservice = builder.AddProject<Projects.AspireSample_ApiService>("apiservice")
+var apiservice = builder.AddProject<Projects.AspireSample_ApiService>($"apiservice-crm-{envName}-{location}")
     .WithReference(locationsdb);
 
 builder.AddProject<Projects.AspireSample_Web>("webfrontend")

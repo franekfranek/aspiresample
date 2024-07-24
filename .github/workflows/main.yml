@@ -55,6 +55,12 @@ jobs:
     - name: Enable resource scoped deployments
       run: azd config set alpha.resourceGroupDeployments on
 
+    - name: Deploy other resources not handled by aspire
+      run: |
+        echo "Starting deployment"
+        timestamp=$(date +%s)
+        echo "Timestamp: $timestamp"  
+
     # - name: Deploy other resources not handled by aspire
     #   run: |
     #     az deployment group create \
@@ -62,30 +68,30 @@ jobs:
     #       --template-file bicep/main.bicep \
     #       --parameters location=${{ matrix.region }} tenantId=${{ secrets.TENANTID }}
 
-    - name: Echo Azure Location
-      env:
-        AZURE_LOCATION: ${{ matrix.region }}    
-      run: echo "AZURE_LOCATION is $AZURE_LOCATION"
+    # - name: Echo Azure Location
+    #   env:
+    #     AZURE_LOCATION: ${{ matrix.region }}    
+    #   run: echo "AZURE_LOCATION is $AZURE_LOCATION"
    
-    - name: Display current path
-      run: pwd
+    # - name: Display current path
+    #   run: pwd
 
-    - name: List directory contents
-      run: ls -la
+    # - name: List directory contents
+    #   run: ls -la
 
     # - name: Provision Aspire Infrastructure
     #   env:
     #     AZURE_LOCATION: ${{ matrix.region }}
     #   run: azd --debug provision --no-prompt --cwd AspireSample.AppHost
     #   working-directory: AspireSample.AppHost
-    - name: Provision Aspire Infrastructure
-      env:
-        AZURE_LOCATION: ${{ matrix.region }}
-      run: |
-        cd AspireSample.AppHost
-        azd --debug provision --no-prompt
+    # - name: Provision Aspire Infrastructure
+    #   env:
+    #     AZURE_LOCATION: ${{ matrix.region }}
+    #   run: |
+    #     cd AspireSample.AppHost
+    #     azd --debug provision --no-prompt
 
-    - name: Deploy Aspire Application
-      env:
-        AZURE_LOCATION: ${{ matrix.region }}
-      run: azd deploy --no-prompt     
+    # - name: Deploy Aspire Application
+    #   env:
+    #     AZURE_LOCATION: ${{ matrix.region }}
+    #   run: azd deploy --no-prompt     

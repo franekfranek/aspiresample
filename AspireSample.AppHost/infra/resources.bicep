@@ -1,5 +1,5 @@
 @description('The location used for all deployed resources')
-param location string
+param location string = resourceGroup().location
 @description('Id of the user or app to assign application roles')
 param principalId string = ''
 
@@ -10,13 +10,13 @@ param tags object = {}
 var resourceToken = uniqueString(resourceGroup().id)
 
 resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
-  name: 'mi-${resourceToken}-${location}'
+  name: 'mi-${resourceToken}'
   location: location
   tags: tags
 }
 
 resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-07-01' = {
-  name: replace('acr-${location}-${resourceToken}', '-', '')
+  name: replace('acr-${resourceToken}', '-', '')
   location: location
   sku: {
     name: 'Basic'
@@ -38,7 +38,7 @@ resource caeMiRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01
 }
 
 resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
-  name: 'law-${location}-${resourceToken}'
+  name: 'law-${resourceToken}'
   location: location
   properties: {
     sku: {
@@ -49,7 +49,7 @@ resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2022-10
 }
 
 resource containerAppEnvironment 'Microsoft.App/managedEnvironments@2024-02-02-preview' = {
-  name: 'cae-${location}-${resourceToken}'
+  name: 'cae-${resourceToken}'
   location: location
   properties: {
     workloadProfiles: [{

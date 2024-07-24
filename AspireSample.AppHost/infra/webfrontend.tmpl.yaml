@@ -23,8 +23,6 @@ properties:
     secrets:
       - name: connectionstrings--crm-cache
         value: crm-cache:6379
-      - name: connectionstrings--secrets
-        value: '{{ .Env.SECRETS_VAULTURI }}'
   template:
     containers:
       - image: {{ .Image }}
@@ -40,14 +38,12 @@ properties:
             value: "true"
           - name: OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY
             value: in_memory
-          - name: services__apiservice__http__0
-            value: http://apiservice.internal.{{ .Env.AZURE_CONTAINER_APPS_ENVIRONMENT_DEFAULT_DOMAIN }}
-          - name: services__apiservice__https__0
-            value: https://apiservice.internal.{{ .Env.AZURE_CONTAINER_APPS_ENVIRONMENT_DEFAULT_DOMAIN }}
+          - name: services__apiservice-crm-dev-eastus__http__0
+            value: http://apiservice-crm-dev-eastus.internal.{{ .Env.AZURE_CONTAINER_APPS_ENVIRONMENT_DEFAULT_DOMAIN }}
+          - name: services__apiservice-crm-dev-eastus__https__0
+            value: https://apiservice-crm-dev-eastus.internal.{{ .Env.AZURE_CONTAINER_APPS_ENVIRONMENT_DEFAULT_DOMAIN }}
           - name: ConnectionStrings__crm-cache
             secretRef: connectionstrings--crm-cache
-          - name: ConnectionStrings__secrets
-            secretRef: connectionstrings--secrets
     scale:
       minReplicas: 1
 tags:
