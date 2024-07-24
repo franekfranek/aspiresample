@@ -55,15 +55,15 @@ jobs:
     - name: Enable resource scoped deployments
       run: azd config set alpha.resourceGroupDeployments on
 
-    - name: Deploy other resources not handled by aspire
-      run: |
-        echo "Starting deployment"
-        timestamp=$(date +%s)
-        echo "Timestamp: $timestamp"  
+    # - name: Deploy other resources not handled by aspire
+    #   run: |
+    #     echo "Starting deployment"
+    #     timestamp=$(date +%s)
+    #     echo "Timestamp: $timestamp"  
 
     - name: Deploy other resources not handled by aspire
       run: |
-        timestamp=$(date +%s)
+        timestamp=$(date +%s) 
         az deployment group create \
           --name "main-$timestamp" \
           --resource-group ${{ env.AZURE_RESOURCEGROUP_ID }} \
