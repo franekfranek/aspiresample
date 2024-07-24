@@ -61,12 +61,14 @@ jobs:
         timestamp=$(date +%s)
         echo "Timestamp: $timestamp"  
 
-    # - name: Deploy other resources not handled by aspire
-    #   run: |
-    #     az deployment group create \
-    #       --resource-group ${{ env.AZURE_RESOURCEGROUP_ID }} \
-    #       --template-file bicep/main.bicep \
-    #       --parameters location=${{ matrix.region }} tenantId=${{ secrets.TENANTID }}
+    - name: Deploy other resources not handled by aspire
+      run: |
+        timestamp=$(date +%s)
+        az deployment group create \
+          --name "main-$timestamp" \
+          --resource-group ${{ env.AZURE_RESOURCEGROUP_ID }} \
+          --template-file bicep/main.bicep \
+          --parameters location=${{ matrix.region }} tenantId=${{ secrets.TENANTID }}
 
     # - name: Echo Azure Location
     #   env:
